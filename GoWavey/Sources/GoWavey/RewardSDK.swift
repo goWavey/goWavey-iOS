@@ -3,7 +3,7 @@ import Combine
 
 final class RewardSDK {
 
-    let compositionRoot: SDKCompositionRoot
+    private let compositionRoot: SDKCompositionRoot
 
     /// The API key is a unique identifier that authenticates requests associated with your project
     init(authToken: String) {
