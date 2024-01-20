@@ -14,7 +14,17 @@ enum APIEndpoints {
         Endpoint(
             route: .updateUserActivity,
             method: .post,
-            bodyParametersEncodable: ActivityDTO(activity)
+            bodyParameters: ["activityId" : activity.id,
+                             "value": activity.value]
+        )
+    }
+
+    static func getTrophyCase(id: String) -> Endpoint<String> {
+
+        Endpoint(
+            route: .trophyCase,
+            method: .get,
+            queryParameters: ["trophyId" : id]
         )
     }
 }
