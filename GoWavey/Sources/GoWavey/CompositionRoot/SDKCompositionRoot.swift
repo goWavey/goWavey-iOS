@@ -22,7 +22,7 @@ final class SDKCompositionRoot {
     //MARK: Networking Config Composition
     lazy private var requestAuthenticator = DefaultRequestAuthenticator(authToken: authToken, memberId: memberId)
 
-    lazy private var networkConfig = ApiDataNetworkConfig(baseUrl: URL(string: "www.google.com")!)
+    lazy private var networkConfig = ApiDataNetworkConfig(baseUrl: URL(string: "https://jjx9q27w5k.execute-api.us-east-1.amazonaws.com/stage")!)
 
     lazy private var  networkService = DefaultNetworkService(config: networkConfig)
 
