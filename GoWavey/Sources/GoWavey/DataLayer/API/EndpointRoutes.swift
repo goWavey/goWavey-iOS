@@ -10,14 +10,16 @@ import Foundation
 enum EndpointRoute {
 
     case updateUserActivity
+    case trophyCase
 
     var path: String {
 
         switch self {
 
         case .updateUserActivity:
-            return "userActivity"
-
+            return "activities/process"
+        case .trophyCase:
+            return "trophies"
         }
     }
 }
