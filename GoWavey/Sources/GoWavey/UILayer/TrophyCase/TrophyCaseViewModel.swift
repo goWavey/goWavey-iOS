@@ -17,6 +17,7 @@ extension TrophyCaseView {
     final class ViewModel: ObservableObject {
 
         @Published var isLoading = false
+        @Published var hasAttemptedFetch = false
         @Published var hasFailed = false
         @Published var trophyCase: TrophyCase?
         private var subscriber: AnyCancellable?
@@ -32,6 +33,7 @@ extension TrophyCaseView {
         func getTrophyCase(id: String) async {
 
             isLoading = true
+            hasAttemptedFetch = true
 
             subscriber = await dependencies.getTrophyCaseUseCase.getTrophyCase(id: id)
                 .sink { completion in

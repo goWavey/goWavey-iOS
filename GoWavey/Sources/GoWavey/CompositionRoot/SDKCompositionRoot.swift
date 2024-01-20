@@ -8,7 +8,7 @@
 import Foundation
 
 
-final class SDKCompositionRoot {
+final class SDKCompositionRoot: TrophyCaseVMDependencies {
 
     private let authToken: String
     private let memberId: String
@@ -28,8 +28,7 @@ final class SDKCompositionRoot {
 
     lazy private var dataTransferService: DataTransferService = DefaultDataTransferService(networkService: networkService, errorResolver: DefaultErrorResolver())
 
-
     //MARK: Use Cases composition
     lazy var updateActivityUseCase: UpdateActivityUseCase = ActivityProvider(service: dataTransferService)
-
+    lazy var getTrophyCaseUseCase: GetTrophyCaseUseCase  = TrophyCaseProvider(service: dataTransferService)
 }
