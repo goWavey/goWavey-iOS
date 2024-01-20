@@ -19,15 +19,15 @@ final class TrophyCaseProvider {
 
 extension TrophyCaseProvider {
 
-    func getTrophyCase(id: String) async -> AnyPublisher<String, Error> {
-        
+    func getTrophyCase(id: String) async -> AnyPublisher<TrophyCase, Error> {
+
         let endpoint = APIEndpoints.getTrophyCase(id: id)
 
         let response = await service.request(with: endpoint)
 
         switch response {
         case .success(let success):
-            return Just("")
+            return Just(success.entity)
                 .setFailureType(to: Error.self)
                 .eraseToAnyPublisher()
         case .failure(let error):

@@ -24,9 +24,7 @@ extension RewardProvider: RewardDetailsUseCase {
             id: UUID().uuidString,
             name: UUID().uuidString,
             description: UUID().uuidString,
-            iconUrl: UUID().uuidString,
-            value: 1,
-            type: UUID().uuidString
+            iconUrl: UUID().uuidString
         )
 
         return Just(reward)

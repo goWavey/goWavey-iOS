@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TrophyCaseDTO {
+struct TrophyCaseDTO: Codable {
     let object: String
     let rewards: [RewardDTO]
 
@@ -22,5 +22,19 @@ struct TrophyCaseDTO {
             case animationID = "animationId"
             case isAchieved
         }
+    }
+
+    var entity: TrophyCase {
+        
+        TrophyCase(
+            trophies: rewards.map { reward in
+                Badge(
+                    id: UUID().uuidString,
+                    name: reward.name,
+                    description: reward.description,
+                    iconUrl: reward.badgeURL
+                )
+            }
+        )
     }
 }

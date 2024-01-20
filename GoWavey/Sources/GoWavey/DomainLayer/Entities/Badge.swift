@@ -13,5 +13,4 @@ struct Badge: Identifiable, Hashable {
     let name: String
     let description: String
     let iconUrl: String
-    let type: String
 }

@@ -8,10 +8,6 @@
 import Foundation
 
 struct TrophyCase {
-    let userId: String
+
     var trophies: [Badge]
-    var totalPoints: Int
-    var level: Int
-    var nextLevelThreshold: Int
-    var lastUpdated: Date
 }
