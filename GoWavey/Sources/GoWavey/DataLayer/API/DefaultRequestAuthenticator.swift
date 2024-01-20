@@ -11,17 +11,21 @@ import Foundation
 final class DefaultRequestAuthenticator: Authentication {
 
     let authToken: String
+    let memberId: String
 
-    init(authToken: String) {
+    init(authToken: String,
+         memberId: String) {
 
         self.authToken = authToken
+        self.memberId = memberId
     }
 
     func authenticate(_ request: URLRequest) async throws -> URLRequest {
 
         var _request = request
 
-        _request.setValue("Bearer \(authToken)", forHTTPHeaderField: "Authorization")
+        _request.setValue(authToken, forHTTPHeaderField: "Authorizer")
+        _request.setValue(memberId, forHTTPHeaderField: "memberId")
 
         return _request
     }
