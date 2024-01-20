@@ -12,6 +12,4 @@ struct Reward {
     let name: String
     let description: String
     let iconUrl: String
-    let value: Int
-    let type: String
 }

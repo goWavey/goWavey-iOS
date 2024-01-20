@@ -19,7 +19,7 @@ enum APIEndpoints {
         )
     }
 
-    static func getTrophyCase(id: String) -> Endpoint<String> {
+    static func getTrophyCase(id: String) -> Endpoint<TrophyCaseDTO> {
 
         Endpoint(
             route: .trophyCase,
