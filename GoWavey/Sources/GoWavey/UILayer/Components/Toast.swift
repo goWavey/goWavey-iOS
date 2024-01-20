@@ -87,7 +87,7 @@ struct ToastView_Previews: PreviewProvider {
         Text("Hello World")
             .toast(
                 .constant(
-                    .show(.success("Something went wrong"))
+                    .show(.error("Something went wrong"))
                 )
             )
     }

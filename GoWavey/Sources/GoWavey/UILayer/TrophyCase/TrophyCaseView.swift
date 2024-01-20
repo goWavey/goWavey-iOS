@@ -48,6 +48,7 @@ struct TrophyCaseView: View {
 
                 if viewModel.hasFailed {
                     ContentUnavailableView()
+                        .toast($viewModel.toast)
                 } else {
                     presentationView
                 }

@@ -20,6 +20,8 @@ extension TrophyCaseView {
         @Published var hasAttemptedFetch = false
         @Published var hasFailed = false
         @Published var trophyCase: TrophyCase?
+        @Published var toast: Toast.State = .hide
+
         private var subscriber: AnyCancellable?
 
         let dependencies: TrophyCaseVMDependencies
@@ -41,6 +43,7 @@ extension TrophyCaseView {
                     if case .failure(let error) = completion {
 
                         self.hasFailed = true
+                        self.toast = .show(.error("Something went wrong."))
                     }
                 } receiveValue: { [weak self] trophyCase in
 
