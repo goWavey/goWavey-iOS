@@ -17,7 +17,7 @@ final class TrophyCaseProvider {
     }
 }
 
-extension TrophyCaseProvider {
+extension TrophyCaseProvider: GetTrophyCaseUseCase {
 
     func getTrophyCase(id: String) async -> AnyPublisher<TrophyCase, Error> {
 
