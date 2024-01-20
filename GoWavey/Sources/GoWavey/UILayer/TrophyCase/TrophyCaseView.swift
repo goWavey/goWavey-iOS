@@ -1,11 +1,9 @@
 //
-//  SwiftUIView.swift
+//  TrophyCaseView.swift
 //  
 //
 //  Created by Nikola Matijevic on 3.1.24..
 //
-
-import SwiftUI
 
 import SwiftUI
 
