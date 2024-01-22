@@ -9,7 +9,7 @@ import Foundation
 
 enum APIEndpoints {
 
-    static func updateActivity(_ activity: Activity) -> Endpoint<String> {
+    static func updateActivity(_ activity: Activity) -> Endpoint<UpdateActivityDTO> {
 
         Endpoint(
             route: .updateUserActivity,

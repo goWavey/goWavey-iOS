@@ -10,5 +10,10 @@ import Combine
 
 protocol UpdateActivityUseCase {
 
-   func updateActivity(_ activity: Activity) async -> AnyPublisher< String, Error>
+   func updateActivity(_ activity: Activity) async -> AnyPublisher<UpdateActivityResponse, Error>
+}
+
+struct UpdateActivityResponse {
+    var message: String
+    var badge: Badge?
 }

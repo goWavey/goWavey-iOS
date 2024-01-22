@@ -19,7 +19,7 @@ final class ActivityProvider {
 
 extension ActivityProvider: UpdateActivityUseCase {
 
-    func updateActivity(_ activity: Activity) async -> AnyPublisher< String, Error> {
+    func updateActivity(_ activity: Activity) async -> AnyPublisher<UpdateActivityResponse, Error> {
 
         let endpoint = APIEndpoints.updateActivity(activity)
 
@@ -27,7 +27,12 @@ extension ActivityProvider: UpdateActivityUseCase {
 
         switch response {
         case .success(let success):
-            return Just("")
+
+            let badges = success.body.map(\.badgeEntity)
+
+            let response = UpdateActivityResponse(message: "Successfully updated the activity", badge: badges.first)
+
+            return Just(response)
                 .setFailureType(to: Error.self)
                 .eraseToAnyPublisher()
         case .failure(let error):

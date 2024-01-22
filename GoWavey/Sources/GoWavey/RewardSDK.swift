@@ -11,7 +11,7 @@ final class RewardSDK {
         self.compositionRoot = SDKCompositionRoot(authToken: authToken, memberId: memberId)
     }
 
-    public func updateActivity(_ activity: Activity) async -> AnyPublisher<String, Error> {
+    public func updateActivity(_ activity: Activity) async -> AnyPublisher<UpdateActivityResponse, Error> {
 
         await compositionRoot.updateActivityUseCase.updateActivity(activity)
     }
