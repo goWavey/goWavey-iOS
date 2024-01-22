@@ -62,7 +62,7 @@ struct TrophyCaseView: View {
                     .font(.title)
                     .padding()
 
-                LazyVGrid(columns: columns, spacing: 20) {
+                LazyVGrid(columns: columns, spacing: 5) {
                     ForEach(viewModel.trophyCase?.trophies ?? [], id: \.self) { trophy in
                         TrophyCaseBadgeView(trophy: trophy)
                     }
@@ -80,26 +80,31 @@ struct TrophyCaseBadgeView: View {
     var body: some View {
         VStack {
             // Replace with actual image and text from your data
-            AsyncImage(url: URL(string: trophy.iconUrl)) { image in
-                image.resizable()
-                     .aspectRatio(contentMode: .fit)
-                     .frame(width: 50, height: 50)
-            } placeholder: {
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
+            ZStack {
+                AsyncImage(url: URL(string: trophy.iconUrl)) { image in
+                    image.resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50, height: 50)
+                } placeholder: {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                }
+                .padding()
+                .opacity(trophy.isAchieved ? 1 : 0.2)
+
             }
-            .padding()
 
             Text(trophy.name)
                 .font(.caption)
                 .multilineTextAlignment(.center)
                 .lineLimit(1)
                 .padding(.horizontal)
+                .opacity(trophy.isAchieved ? 1 : 0.2)
 
             Spacer()
         }
         .fixedSize(horizontal: false, vertical: true) // This ensures the height is the same for all, while allowing the width to be flexible
-        .frame(width: UIScreen.main.bounds.width/4, height: 120)
+        .frame(width: UIScreen.main.bounds.width/3, height: 120)
         .cornerRadius(10)
     }
 }
