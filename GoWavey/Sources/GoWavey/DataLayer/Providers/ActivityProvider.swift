@@ -30,7 +30,7 @@ extension ActivityProvider: UpdateActivityUseCase {
         switch response {
         case .success(let success):
 
-            let badges = success.body.map(\.badgeEntity)
+            let badges = success.payload.body.map(\.badgeEntity)
 
             let response = UpdateActivityResponse(message: "Successfully updated the activity", badge: badges.first)
 

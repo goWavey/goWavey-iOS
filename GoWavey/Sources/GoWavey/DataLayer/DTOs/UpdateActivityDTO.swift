@@ -8,7 +8,14 @@
 import Foundation
 
 struct UpdateActivityDTO: Codable {
+    let payload: UpdateActivityDTOPayload
 
+    enum CodingKeys: String, CodingKey {
+        case payload = "Payload"
+    }
+}
+
+struct UpdateActivityDTOPayload: Codable {
     let body: [UpdateActivityBadgeDTO]
 }
 
