@@ -4,7 +4,7 @@ import Combine
 public final class RewardSDK {
 
     private let compositionRoot: SDKCompositionRoot
-    private let updateActivity = UpdateActivity()
+    var updateActivity: UpdateActivity { UpdateActivity() } 
 
     /// The API key is a unique identifier that authenticates requests associated with your project
     /// Member id is user's unique identifier
