@@ -15,7 +15,8 @@ enum APIEndpoints {
             route: .updateUserActivity,
             method: .post,
             bodyParameters: ["activityId" : activity.id,
-                             "value": activity.value]
+                             "value": activity.value],
+            authentication: authentication
         )
     }
 
@@ -24,7 +25,8 @@ enum APIEndpoints {
         Endpoint(
             route: .trophyCase,
             method: .get,
-            queryParameters: ["trophyId" : id]
+            queryParameters: ["trophyId" : id],
+            authentication: authentication
         )
     }
 }
