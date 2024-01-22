@@ -11,9 +11,11 @@ import Combine
 final class TrophyCaseProvider {
 
     let service: DataTransferService
+    let authentication: Authentication
 
-    init(service: DataTransferService) {
+    init(service: DataTransferService, authentication: Authentication) {
         self.service = service
+        self.authentication = authentication
     }
 }
 
@@ -21,7 +23,7 @@ extension TrophyCaseProvider: GetTrophyCaseUseCase {
 
     func getTrophyCase(id: String) async -> AnyPublisher<TrophyCase, Error> {
 
-        let endpoint = APIEndpoints.getTrophyCase(id: id)
+        let endpoint = APIEndpoints.getTrophyCase(id: id, authentication: authentication)
 
         let response = await service.request(with: endpoint)
 

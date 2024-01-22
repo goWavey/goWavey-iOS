@@ -7,18 +7,15 @@
 
 import SwiftUI
 
-struct TrophyCaseView: View {
+public struct TrophyCaseView: View {
 
     /// Trophy case id
     private let id: String
-    @StateObject var viewModel: ViewModel
+    @StateObject var viewModel = ViewModel()
 
-    init(
-        dependencies: TrophyCaseVMDependencies,
-        id: String) {
+    public init(id: String) {
 
         self.id = id
-        self._viewModel = StateObject(wrappedValue: ViewModel(dependencies: dependencies))
     }
 
     // Define the columns for the grid
@@ -29,7 +26,7 @@ struct TrophyCaseView: View {
         GridItem(.flexible())
     ]
 
-    var body: some View {
+    public var body: some View {
         Group {
             
             if !viewModel.hasAttemptedFetch || viewModel.isLoading {
@@ -111,10 +108,5 @@ struct TrophyCaseBadgeView: View {
 
 
 #Preview {
-    TrophyCaseView(
-        dependencies: SDKCompositionRoot(
-            authToken: "r6kFAgMzjEuU6LG8CJc31n",
-            memberId: "cc704ce5-b44f-4cf2-8d9a-0f1ed0903e5f"),
-        id: "8MLfmZb3poHVNSh29GXyBi"
-    )
+    TrophyCaseView(id: "")
 }

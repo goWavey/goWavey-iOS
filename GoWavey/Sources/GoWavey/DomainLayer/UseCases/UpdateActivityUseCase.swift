@@ -13,7 +13,7 @@ protocol UpdateActivityUseCase {
    func updateActivity(_ activity: Activity) async -> AnyPublisher<UpdateActivityResponse, Error>
 }
 
-struct UpdateActivityResponse {
+public struct UpdateActivityResponse {
     var message: String
     var badge: Badge?
 }

@@ -8,10 +8,6 @@
 import Foundation
 import Combine
 
-protocol TrophyCaseVMDependencies {
-    var getTrophyCaseUseCase: GetTrophyCaseUseCase { get }
-}
-
 extension TrophyCaseView {
 
     final class ViewModel: ObservableObject {
@@ -22,14 +18,9 @@ extension TrophyCaseView {
         @Published var trophyCase: TrophyCase?
         @Published var toast: Toast.State = .hide
 
+        @Injected var getTrophyCaseUseCase: GetTrophyCaseUseCase
+
         private var subscriber: AnyCancellable?
-
-        let dependencies: TrophyCaseVMDependencies
-
-        init(dependencies: TrophyCaseVMDependencies) {
-
-            self.dependencies = dependencies
-        }
 
         @MainActor
         func getTrophyCase(id: String) async {
@@ -37,7 +28,7 @@ extension TrophyCaseView {
             isLoading = true
             hasAttemptedFetch = true
 
-            subscriber = await dependencies.getTrophyCaseUseCase.getTrophyCase(id: id)
+            subscriber = await getTrophyCaseUseCase.getTrophyCase(id: id)
                 .sink { completion in
 
                     if case .failure(let error) = completion {

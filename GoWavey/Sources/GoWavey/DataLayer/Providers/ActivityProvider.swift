@@ -11,9 +11,11 @@ import Combine
 final class ActivityProvider {
 
     let service: DataTransferService
+    let authentication: Authentication
 
-    init(service: DataTransferService) {
+    init(service: DataTransferService, authentication: Authentication) {
         self.service = service
+        self.authentication = authentication
     }
 }
 
@@ -21,7 +23,7 @@ extension ActivityProvider: UpdateActivityUseCase {
 
     func updateActivity(_ activity: Activity) async -> AnyPublisher<UpdateActivityResponse, Error> {
 
-        let endpoint = APIEndpoints.updateActivity(activity)
+        let endpoint = APIEndpoints.updateActivity(activity, authentication: authentication)
 
         let response = await service.request(with: endpoint)
 

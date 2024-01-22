@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Badge: Identifiable, Hashable {
+public struct Badge: Identifiable, Hashable {
 
-    let id: String
+    public let id: String
     let name: String
     let description: String
     let iconUrl: String

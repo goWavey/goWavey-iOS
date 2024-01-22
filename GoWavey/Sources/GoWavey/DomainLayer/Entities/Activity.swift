@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Activity {
+public struct Activity {
 
     let id: String
     let value: Int

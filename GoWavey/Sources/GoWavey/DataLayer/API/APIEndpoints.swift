@@ -9,7 +9,7 @@ import Foundation
 
 enum APIEndpoints {
 
-    static func updateActivity(_ activity: Activity) -> Endpoint<UpdateActivityDTO> {
+    static func updateActivity(_ activity: Activity, authentication: Authentication) -> Endpoint<UpdateActivityDTO> {
 
         Endpoint(
             route: .updateUserActivity,
@@ -19,7 +19,7 @@ enum APIEndpoints {
         )
     }
 
-    static func getTrophyCase(id: String) -> Endpoint<TrophyCaseDTO> {
+    static func getTrophyCase(id: String, authentication: Authentication) -> Endpoint<TrophyCaseDTO> {
 
         Endpoint(
             route: .trophyCase,
