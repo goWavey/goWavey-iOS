@@ -11,4 +11,9 @@ public struct Activity {
 
     let id: String
     let value: Int
+
+    public init(id: String, value: Int) {
+        self.id = id
+        self.value = value
+    }
 }
