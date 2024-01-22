@@ -32,7 +32,8 @@ struct TrophyCaseDTO: Codable {
                     id: UUID().uuidString,
                     name: reward.name,
                     description: reward.description,
-                    iconUrl: reward.badgeURL
+                    iconUrl: reward.badgeURL,
+                    isAchieved: reward.isAchieved
                 )
             }
         )
