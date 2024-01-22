@@ -13,6 +13,17 @@ final class SDKCompositionRoot {
     private let authToken: String
     private let memberId: String
 
+    enum Constants {
+
+        static let acceptedTypes = "*/*"
+        static let contentType = "application/json"
+    }
+
+
+    private lazy var headers = ["Accept": Constants.acceptedTypes,
+                                "Content-type": Constants.contentType]
+
+
     private static var cache: [String: Any] = [:]
     private static var factories: [String: () -> Any] = [:]
 
