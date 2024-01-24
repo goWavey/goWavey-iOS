@@ -12,16 +12,11 @@ let package = Package(
             name: "GoWaveySDK",
             targets: ["GoWaveySDK"]),
     ],
-    dependencies: [
-        .package(url: "https://github.com/SFSafeSymbols/SFSafeSymbols.git", .upToNextMajor(from: "4.0.0"))
-        ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "GoWaveySDK",
-        dependencies: [
-            "SFSafeSymbols"]
+            name: "GoWaveySDK"
         ),
         .testTarget(
             name: "GoWaveySDKTests",
