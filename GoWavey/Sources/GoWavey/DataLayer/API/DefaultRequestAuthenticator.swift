@@ -25,7 +25,7 @@ final class DefaultRequestAuthenticator: Authentication {
         var _request = request
 
         _request.setValue(authToken, forHTTPHeaderField: "Authorization")
-        _request.setValue(memberId, forHTTPHeaderField: "memberId")
+        _request.setValue(memberId, forHTTPHeaderField: "x-member-id")
 
         return _request
     }
