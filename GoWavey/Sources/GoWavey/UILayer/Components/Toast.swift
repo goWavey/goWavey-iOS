@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import SFSafeSymbols
 
 struct ToastNotificationModifier: ViewModifier {
     @Binding var status: Toast.State
@@ -134,13 +133,13 @@ enum Toast {
         var icon: Image {
             switch self {
             case .error:
-                return Image(systemSymbol: .multiplyCircle)
+                return Image(systemName: "multiply.circle")
             case .success:
-                return Image(systemSymbol: .checkmarkCircle)
+                return Image(systemName: "checkmark.circle")
             case .warning:
-                return Image(systemSymbol: .exclamationmarkTriangle)
+                return Image(systemName: "exclamationmark.triangle")
             case .info:
-                return Image(systemSymbol: .infoCircle)
+                return Image(systemName: "info.circle")
             }
         }
     }

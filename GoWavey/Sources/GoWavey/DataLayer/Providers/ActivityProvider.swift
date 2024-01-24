@@ -32,7 +32,7 @@ extension ActivityProvider: UpdateActivityUseCase {
 
             let badges = success.payload.body.map(\.badgeEntity)
 
-            let response = UpdateActivityResponse(message: "Successfully updated the activity", badge: badges.first)
+            let response = UpdateActivityResponse(message: "Successfully updated the activity", badges: badges)
 
             return Just(response)
                 .setFailureType(to: Error.self)

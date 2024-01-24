@@ -15,5 +15,5 @@ protocol UpdateActivityUseCase {
 
 public struct UpdateActivityResponse {
     var message: String
-    var badge: Badge?
+    var badges: [Badge]?
 }
