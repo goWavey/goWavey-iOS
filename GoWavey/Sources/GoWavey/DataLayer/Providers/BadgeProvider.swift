@@ -26,7 +26,8 @@ extension BadgeProvider: BadgeDetailsUseCase {
             name: String(UUID().uuidString.prefix(5)),
             description: UUID().uuidString,
             iconUrl: "",
-            isAchieved: true
+            isAchieved: true,
+            animationName: "animation1"
         )
 
         return Just(badge)

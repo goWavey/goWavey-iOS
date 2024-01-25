@@ -56,7 +56,8 @@ struct UpdateActivityBadgeDTO: Codable {
             name: name,
             description: description,
             iconUrl: attributes.imageURL,
-            isAchieved: true
+            isAchieved: true,
+            animationName: attributes.animationURL
         )
     }
 }

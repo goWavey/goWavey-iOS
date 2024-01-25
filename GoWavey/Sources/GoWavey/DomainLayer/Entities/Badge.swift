@@ -14,4 +14,5 @@ public struct Badge: Identifiable, Hashable {
     let description: String
     let iconUrl: String
     let isAchieved: Bool
+    let animationName: String?
 }

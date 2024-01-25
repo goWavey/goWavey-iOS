@@ -15,14 +15,14 @@ struct BadgeView: View {
 
     var body: some View {
         ZStack {
-
+            
             Color.black.opacity(0.6).edgesIgnoringSafeArea(.all)
-
+            
             VStack {
                 if badges.count == 1 {
                     viewForBadge(badges.first!)
                 } else {
-
+                    
                     TabView {
                         ForEach(badges) { badge in
                             viewForBadge(badge)
@@ -30,10 +30,10 @@ struct BadgeView: View {
                     }
                     .tabViewStyle(.page)
                 }
-
+                
                 Spacer()
-
-
+                
+                
                 Button(action: {
                     withAnimation {
                         presentationMode.wrappedValue.dismiss()
@@ -43,6 +43,10 @@ struct BadgeView: View {
                         .font(.largeTitle)
                         .foregroundColor(.white)
                 }
+            }
+            
+            if let lottie = LottieAnimatingView.Lottie(rawValue: "animation1") {
+                LottieAnimatingView(animation: lottie)
             }
         }
     }

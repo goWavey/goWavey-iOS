@@ -33,7 +33,8 @@ struct TrophyCaseDTO: Codable {
                     name: reward.name,
                     description: reward.description,
                     iconUrl: reward.badgeURL,
-                    isAchieved: reward.isAchieved
+                    isAchieved: reward.isAchieved,
+                    animationName: nil
                 )
             }
         )
