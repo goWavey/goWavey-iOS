@@ -5,6 +5,7 @@
 //  Created by Nikola Matijevic on 25.1.24..
 //
 
+
 import Foundation
 import UIKit
 import SwiftUI
@@ -31,7 +32,7 @@ struct LottieAnimatingView: UIViewRepresentable {
         let view = UIView(frame: .zero)
 
         let animationView = LottieAnimationView()
-        let animation = LottieAnimation.named(animation.rawValue, subdirectory: "Resources")
+        let animation = LottieAnimation.named(animation.rawValue, bundle: Bundle.module)
         animationView.animation = animation
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = loopMode

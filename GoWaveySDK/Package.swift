@@ -22,7 +22,13 @@ let package = Package(
             name: "GoWaveySDK",
             dependencies: [
                 .product(name: "Lottie", package: "lottie-ios")
-            ]
+            ],
+            resources: [.copy("animation1.json"),
+                        .copy("animation2.json"),
+                        .copy("animation3.json"),
+                        .copy("animation4.json"),
+                        .copy("animation5.json"),
+                        .copy("animation6.json")]
         ),
         .testTarget(
             name: "GoWaveySDKTests",

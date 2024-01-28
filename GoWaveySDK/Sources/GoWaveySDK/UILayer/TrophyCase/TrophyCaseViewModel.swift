@@ -53,21 +53,21 @@ extension TrophyCase {
                            description: "",
                            iconUrl: "https://gowavey-media-bucket.s3.amazonaws.com/default/badges/img1.png",
                            isAchieved: false,
-                           animationName: "animation1")
+                           animationName: "animation4")
 
         let badge2 = Badge(id: "/gif4.gif",
                            name: "hello",
                            description: "",
                            iconUrl: "https://gowavey-media-bucket.s3.amazonaws.com/default/badges/img2.png",
                            isAchieved: false,
-                           animationName: "animation1")
+                           animationName: "animation5")
 
         let badge3 = Badge(id: "/gif6.gif",
                            name: "My reward #2",
                            description: "",
                            iconUrl: "https://gowavey-media-bucket.s3.amazonaws.com/default/badges/img4.png",
                            isAchieved: false,
-                           animationName: "animation1")
+                           animationName: "animation6")
 
         return TrophyCase(trophies: [badge1, badge2, badge3])
     }

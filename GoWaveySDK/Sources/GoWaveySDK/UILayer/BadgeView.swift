@@ -44,10 +44,11 @@ struct BadgeView: View {
                         .foregroundColor(.white)
                 }
             }
-            
-            if let lottie = LottieAnimatingView.Lottie(rawValue: "animation1") {
+
+            if let lottie = LottieAnimatingView.Lottie(rawValue: badges[0].animationName ?? "") {
                 LottieAnimatingView(animation: lottie)
             }
+
         }
     }
 
