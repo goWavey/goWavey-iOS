@@ -11,7 +11,7 @@ struct BadgeView: View {
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     let badges: [Badge]
-
+    @State var shouldShowBadge = true
 
     var body: some View {
         ZStack {
@@ -45,8 +45,8 @@ struct BadgeView: View {
                 }
             }
 
-            if let lottie = LottieAnimatingView.Lottie(rawValue: badges[0].animationName ?? "") {
-                LottieAnimatingView(animation: lottie)
+            if shouldShowBadge, let lottie = LottieAnimatingView.Lottie(rawValue: badges[0].animationName ?? "") {
+                LottieAnimatingView(animation: lottie, isPresented: $shouldShowBadge)
             }
 
         }

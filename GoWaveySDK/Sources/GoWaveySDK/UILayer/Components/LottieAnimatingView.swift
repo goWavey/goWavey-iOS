@@ -12,6 +12,8 @@ import SwiftUI
 import Lottie
 
 struct LottieAnimatingView: UIViewRepresentable {
+    @Binding var isPresented: Bool
+
     enum Lottie: String {
         case animation1
         case animation2
@@ -24,8 +26,10 @@ struct LottieAnimatingView: UIViewRepresentable {
     let animation: Lottie
     let loopMode: LottieLoopMode = .playOnce
 
-    init(animation: LottieAnimatingView.Lottie) {
+    init(animation: LottieAnimatingView.Lottie,
+         isPresented: Binding<Bool>) {
         self.animation = animation
+        self._isPresented = isPresented
     }
 
     func makeUIView(context: UIViewRepresentableContext<LottieAnimatingView>) -> UIView {
@@ -36,7 +40,11 @@ struct LottieAnimatingView: UIViewRepresentable {
         animationView.animation = animation
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = loopMode
-        animationView.play()
+        animationView.play { completed in
+            if completed {
+                isPresented = false
+            }
+        }
 
         animationView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(animationView)
