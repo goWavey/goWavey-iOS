@@ -26,6 +26,7 @@ final class DefaultRequestAuthenticator: Authentication {
 
         _request.setValue(authToken, forHTTPHeaderField: "Authorization")
         _request.setValue(memberId, forHTTPHeaderField: "x-member-id")
+        _request.setValue("application/json",  forHTTPHeaderField: "Content-Type")
 
         return _request
     }

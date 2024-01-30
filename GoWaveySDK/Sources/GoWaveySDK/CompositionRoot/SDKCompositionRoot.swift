@@ -48,9 +48,10 @@ extension SDKCompositionRoot {
         lazy var dataTransferService: DataTransferService = DefaultDataTransferService(networkService: networkService, errorResolver: DefaultErrorResolver())
 
         lazy var updateActivityUseCase: UpdateActivityUseCase = ActivityProvider(service: dataTransferService, authentication: requestAuthenticator)
-        lazy var trophyCaseProvider = TrophyCaseProvider(service: dataTransferService, authentication: requestAuthenticator)
+        lazy var trophyCaseProvider: GetTrophyCaseUseCase = TrophyCaseProvider(service: dataTransferService, authentication: requestAuthenticator)
 
         Self.register(type: GetTrophyCaseUseCase.self, trophyCaseProvider)
+        Self.register(type: UpdateActivityUseCase.self, updateActivityUseCase)
     }
 }
 

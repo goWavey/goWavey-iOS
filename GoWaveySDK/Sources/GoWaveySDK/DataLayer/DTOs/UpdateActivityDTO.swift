@@ -8,7 +8,7 @@
 import Foundation
 
 struct UpdateActivityDTO: Codable {
-    let payload: UpdateActivityDTOPayload
+    let payload: UpdateActivityDTOPayload?
 
     enum CodingKeys: String, CodingKey {
         case payload = "Payload"
