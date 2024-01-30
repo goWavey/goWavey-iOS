@@ -7,13 +7,17 @@
 
 import SwiftUI
 
-struct BadgeView: View {
+public struct BadgeView: View {
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    let badges: [Badge]
+    public let badges: [Badge]
     @State var shouldShowBadge = true
 
-    var body: some View {
+    public init(badges: [Badge]) {
+        self.badges = badges
+    }
+
+    public var body: some View {
         ZStack {
             
             Color.black.opacity(0.6).edgesIgnoringSafeArea(.all)
