@@ -32,8 +32,7 @@ struct BadgeView: View {
                 }
                 
                 Spacer()
-                
-                
+
                 Button(action: {
                     withAnimation {
                         presentationMode.wrappedValue.dismiss()
@@ -86,6 +85,6 @@ struct BadgeView: View {
 
 struct BadgeView_Previews: PreviewProvider {
     static var previews: some View {
-        BadgeView(badges: [TrophyCase.mock.trophies[0]])
+        BadgeView(badges: TrophyCase.mock.trophies)
     }
 }
