@@ -12,6 +12,7 @@ public struct TrophyCaseView: View {
     /// Trophy case id
     private let id: String
     @StateObject var viewModel = ViewModel()
+    let onBadgeTap: ((Badge) -> Void)?
 
     var backgroundColor: Color {
 
@@ -38,9 +39,14 @@ public struct TrophyCaseView: View {
         }
     }
 
-    public init(id: String) {
+    public init(
+
+        id: String,
+        onBadgeTap: ((Badge) -> Void)? = nil
+    ) {
 
         self.id = id
+        self.onBadgeTap = onBadgeTap
     }
 
     // Define the columns for the grid
@@ -95,6 +101,11 @@ public struct TrophyCaseView: View {
                 LazyVGrid(columns: columns, spacing: 5) {
                     ForEach(viewModel.trophyCase?.trophies ?? [], id: \.self) { trophy in
                         TrophyCaseBadgeView(trophy: trophy, titleColor: titleColor)
+                            .onTapGesture {
+                                if let onBadgeTap {
+                                    onBadgeTap(trophy)
+                                }
+                            }
                     }
                 }
                 .padding()
