@@ -13,18 +13,46 @@ public struct TrophyCaseView: View {
     private let id: String
     @StateObject var viewModel = ViewModel()
 
+    var backgroundColor: Color {
+
+        switch viewModel.trophyCase?.backgroundColor.lowercased() {
+
+        case "black":
+            return .black
+        case "gray":
+            return .gray
+        case "white":
+            return .white
+        default:
+            return .black
+        }
+    }
+
+    var titleColor: Color {
+        switch backgroundColor {
+
+        case .black:
+            return .white
+        default:
+            return .black
+        }
+    }
+
     public init(id: String) {
 
         self.id = id
     }
 
     // Define the columns for the grid
-    let columns: [GridItem] = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
+    var columns: [GridItem] {
+        var temp = [GridItem]()
+
+        for _ in 0..<(viewModel.trophyCase?.countInRow ?? 4) {
+            temp.append(GridItem(.flexible()))
+        }
+
+        return temp
+    }
 
     public var body: some View {
         Group {
@@ -45,7 +73,11 @@ public struct TrophyCaseView: View {
                     ContentUnavailableView()
                         .toast($viewModel.toast)
                 } else {
-                    presentationView
+                    ZStack {
+                        backgroundColor
+                            .edgesIgnoringSafeArea(.all)
+                        presentationView
+                    }
                 }
             }
         }
@@ -58,21 +90,24 @@ public struct TrophyCaseView: View {
                 Text("Trophy Case")
                     .font(.title)
                     .padding()
+                    .foregroundStyle(titleColor)
 
                 LazyVGrid(columns: columns, spacing: 5) {
                     ForEach(viewModel.trophyCase?.trophies ?? [], id: \.self) { trophy in
-                        TrophyCaseBadgeView(trophy: trophy)
+                        TrophyCaseBadgeView(trophy: trophy, titleColor: titleColor)
                     }
                 }
                 .padding()
             }
         }
+        .background(backgroundColor)
     }
 }
 
 // View for each badge
 struct TrophyCaseBadgeView: View {
     let trophy: Badge
+    let titleColor: Color
 
     var body: some View {
         VStack {
@@ -97,6 +132,7 @@ struct TrophyCaseBadgeView: View {
                 .lineLimit(1)
                 .padding(.horizontal)
                 .opacity(trophy.isAchieved ? 1 : 0.2)
+                .foregroundStyle(titleColor)
 
             Spacer()
         }

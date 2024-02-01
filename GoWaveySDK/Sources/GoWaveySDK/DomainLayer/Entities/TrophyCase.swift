@@ -8,6 +8,7 @@
 import Foundation
 
 struct TrophyCase {
-
+    let backgroundColor: String
+    let countInRow: Int
     var trophies: [Badge]
 }

@@ -88,6 +88,6 @@ extension TrophyCase {
                            isAchieved: false,
                            animationName: "animation6")
 
-        return TrophyCase(trophies: [badge1, badge2, badge3, badge4, badge5, badge6])
+        return TrophyCase(backgroundColor: "black", countInRow: 4, trophies: [badge1, badge2, badge3, badge4, badge5, badge6])
     }
 }

@@ -9,6 +9,8 @@ import Foundation
 
 struct TrophyCaseDTO: Codable {
     let object: String
+    let backgroundColor: String
+    let countInRow: Int
     let rewards: [RewardDTO]
 
     // MARK: - Reward
@@ -27,6 +29,8 @@ struct TrophyCaseDTO: Codable {
     var entity: TrophyCase {
         
         TrophyCase(
+            backgroundColor: backgroundColor,
+            countInRow: countInRow,
             trophies: rewards.map { reward in
                 Badge(
                     id: UUID().uuidString,
