@@ -12,9 +12,14 @@ public struct BadgeView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     public let badges: [Badge]
     @State var shouldShowBadge = true
+    let isNewBadge: Bool
 
-    public init(badges: [Badge]) {
+    public init(
+        badges: [Badge],
+        isNewBadge: Bool = true
+    ) {
         self.badges = badges
+        self.isNewBadge = isNewBadge
     }
 
     public var body: some View {
@@ -48,7 +53,7 @@ public struct BadgeView: View {
                 }
             }
 
-            if shouldShowBadge, let lottie = LottieAnimatingView.Lottie(rawValue: badges[0].animationName ?? "") {
+            if shouldShowBadge && isNewBadge, let lottie = LottieAnimatingView.Lottie(rawValue: badges[0].animationName ?? "") {
                 LottieAnimatingView(animation: lottie, isPresented: $shouldShowBadge)
             }
 
@@ -59,12 +64,11 @@ public struct BadgeView: View {
     @ViewBuilder
     func viewForBadge(_ badge: Badge) -> some View {
 
-
         VStack {
 
             Spacer()
 
-            Text("Received a new \(badge.name) Badge!")
+            Text(isNewBadge ? "Received a new \(badge.name) Badge!" : "\(badge.name) Badge!")
                 .font(.headline)
                 .foregroundColor(.white)
 
@@ -77,10 +81,12 @@ public struct BadgeView: View {
                     .progressViewStyle(CircularProgressViewStyle(tint: .white))
             }
             .padding()
+            .opacity(badge.isAchieved ? 1 : 0.2)
 
             Text(badge.description)
                 .font(.subheadline)
                 .foregroundColor(.gray)
+                .opacity(badge.isAchieved ? 1 : 0.2)
 
             Spacer()
         }
