@@ -31,7 +31,7 @@ extension TrophyCaseView {
             subscriber = await getTrophyCaseUseCase.getTrophyCase(id: id)
                 .sink { completion in
 
-                    if case .failure(let error) = completion {
+                    if case .failure = completion {
 
                         self.hasFailed = true
                         self.toast = .show(.error("Something went wrong."))

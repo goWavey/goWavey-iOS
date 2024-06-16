@@ -48,7 +48,7 @@ extension Requestable {
 
     private func url(with config: NetworkConfigurable) throws -> URL {
 
-        var baseUrl = config.baseUrl.absoluteString.last != "/" ? config.baseUrl.absoluteString + "/" : config.baseUrl.absoluteString
+        let baseUrl = config.baseUrl.absoluteString.last != "/" ? config.baseUrl.absoluteString + "/" : config.baseUrl.absoluteString
         let route = baseUrl.appending(route.path)
 
         guard var urlComponents = URLComponents(string: route) else { throw APIRequestError.urlMalformed }
