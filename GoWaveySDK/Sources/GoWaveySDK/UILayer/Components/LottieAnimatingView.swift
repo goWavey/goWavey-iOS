@@ -36,7 +36,6 @@ struct LottieAnimatingView: UIViewRepresentable {
         let view = UIView(frame: .zero)
 
         let animationView = LottieAnimationView()
-        let bundle = BundleHelper.bundle
 
         let animation = LottieAnimation.named(animation.rawValue, bundle:  BundleHelper.bundle)
         animationView.animation = animation
@@ -61,16 +60,16 @@ struct LottieAnimatingView: UIViewRepresentable {
     func updateUIView(_ uiView: UIViewType, context: Context) { }
 }
 
-struct BundleHelper {
+class BundleHelper {
     static var bundle: Bundle {
-        #if SWIFT_PACKAGE
-        return Bundle.module
-        #else
-        if let resourceBundleURL = Bundle(for: BundleHelper.self).url(forResource: "GoWaveySDKResources", withExtension: "bundle"),
+//        #if SWIFT_PACKAGE
+//        return Bundle.module
+//        #else
+        if let resourceBundleURL = Bundle(for: Self.self).url(forResource: "GoWaveySDKResources", withExtension: "bundle"),
            let resourceBundle = Bundle(url: resourceBundleURL) {
             return resourceBundle
         }
         return Bundle.main
-        #endif
+//        #endif
     }
 }
