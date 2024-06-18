@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
 spec.name         = "GoWaveySDK"
-spec.version      = "1.0.0"
+spec.version      = "1.0.1"
 spec.summary      = "Reward SDK."
 spec.authors      = { 'Nikola Matijevic' => 'nikolamatijevic101@gmail.com' }
 spec.platform     = :ios, '15.0'
@@ -11,9 +11,9 @@ spec.swift_version = '5.3'
 spec.ios.deployment_target  = '15.0'
 spec.homepage     = 'https://github.com/goWavey/goWavey-iOS'
 
-spec.source_files     = 'GoWaveySDK/**/*.swift'
+spec.source_files     = 'Sources/GoWaveySDK/**/*.swift'
 spec.resource_bundles = {
-'GoWaveySDKResources' => ['GoWaveySDK/Resources/*.json']
+'GoWaveySDKResources' => ['Sources/GoWaveySDK/Resources/*.json']
 }
 
 spec.dependency 'lottie-ios', '~> 4.0'
