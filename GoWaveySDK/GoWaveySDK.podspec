@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                  = "GoWaveySDK"
-  spec.version               = "1.0.1"
+  spec.version               = "1.0.2"
   spec.summary               = "Reward SDK"
   spec.authors               = { "Nikola Matijevic" => "nikolamatijevic101@gmail.com" }
   spec.platform              = :ios, "15.0"
